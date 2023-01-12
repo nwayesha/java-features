@@ -1,15 +1,19 @@
-package com.api.java.features.javafeatures.java8;
+package com.api.java.features.javafeatures.javafeatures.java8.foreach;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.api.java.features.javafeatures.javafeatures.BaseIT;
+
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class Java8ForEach {
-    public static void main(String[] args) {
+public class Java8ForEachTestIT extends BaseIT {
+    @Test
+    public void GivenForEachTest() {
 
         //creating sample Collection
         List<Integer> myList = new ArrayList<Integer>();
@@ -19,7 +23,7 @@ public class Java8ForEach {
         Iterator<Integer> it = myList.iterator();
         while (it.hasNext()) {
             Integer i = it.next();
-            System.out.println("Iterator Value::" + i);
+         //   System.out.println("Iterator Value::" + i);
         }
 
         //traversing through forEach method of Iterable with anonymous class
@@ -50,28 +54,6 @@ public class Java8ForEach {
                 System.out.println("employee in foreach consumer " + employee.getEmpId() + " / " + employee.getSalary() + " / " + employee.getGrade());
             }
         });
-
-    }
-}
-
-//Consumer implementation that can be reused
-class MyConsumer implements Consumer<Integer> {
-
-    public void accept(Integer t) {
-        System.out.println("Consumer impl Value::" + t);
-    }
-}
-
-@Getter
-@Setter
-class Employee {
-    private String empId = "";
-    private double salary = 0.0;
-    private String grade = "";
-
-    public Employee(String empId, double salary, String grade) {
-        this.empId = empId;
-        this.salary = salary;
-        this.grade = grade;
+        Assert.assertEquals(2 * 2, 4, "2x2 should be 4");
     }
 }
