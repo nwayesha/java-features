@@ -1,4 +1,4 @@
-package com.api.java.features.javafeatures;
+package com.api.java.features;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
